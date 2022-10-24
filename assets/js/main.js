@@ -80,17 +80,55 @@ tabs.forEach(tab =>{
     tab.addEventListener('click', () =>{
         const target = document.querySelector(tab.dataset.target)
 
-        tabContents.forEach(tabContent =>{
-            tabContent.classList.remove('qualification__active')
-        })
-        target.classList.add('qualification__active')
-
-        tabs.forEach(tab =>{
-            tab.classList.remove('qualification__active')
-        })
-        tab.classList.add('qualification__active')
+        if(tab.dataset.target == '#all'){
+            tabContents.forEach(tabContent =>{
+                tabContent.classList.add('qualification__active')
+                tabContent.classList.remove('qualification__inactive')
+            }) 
+            tabs.forEach(tab =>{
+                tab.classList.remove('qualification__active')
+            })
+            tab.classList.add('qualification__active')
+        } else {
+            tabContents.forEach(tabContent =>{
+                if (target ==  tabContent){
+                    target.classList.remove('qualification__inactive')
+                    target.classList.add('qualification__active')
+                } else if (tabContent.classList.contains('qualification__active')) {
+                    tabContent.classList.remove('qualification__active')
+                    tabContent.classList.add('qualification__inactive')
+                }
+            })
+            
+            tabs.forEach(tab =>{
+                tab.classList.remove('qualification__active')
+            })
+            tab.classList.add('qualification__active')
+        }
     })
+    
 })
+
+/*==================== PROJECTS TABS ====================*/
+/*const projTabs = document.querySelectorAll('[data-projTarget]'),
+    projTabContents = document.querySelectorAll('[data-projContent]')
+
+
+projTabs.forEach(tab =>{
+    tab.addEventListener('click', () =>{
+        const target = document.querySelector(tab.dataset.target)
+
+        projTabContents.forEach(tabContent =>{
+            tabContent.classList.remove('projects__active')
+        })
+        target.classList.add('projects__active')
+
+        projTabs.forEach(tab =>{
+            tab.classList.remove('projects__active')
+        })
+        tab.classList.add('projects__active')
+    })
+})*/
 
 
 /*==================== PROJECTS MODAL ====================*/
