@@ -57,7 +57,6 @@
                 </div>
             </nav>
         </header>
-
         <!--==================== MAIN ====================-->
         <main class="main">
             <!--==================== HOME ====================-->
@@ -174,7 +173,7 @@
             </section>
 
             <!--==================== QUALIFICATION ====================-->
-            <section class="qualification section">
+            <section class="qualification section" id="blur">
                 <h2 class="section__title">Qualification</h2>
                 <span class="section__subtitle">My personal journey</span>
 
@@ -213,7 +212,7 @@
                                         <a href="https://github.com/jovitaanderson/ado-chatbot" target ="_blank" class="home__social-icon">
                                             <i class="uil uil-github"></i>
                                         </a>
-                                        <a href="mailto:joderson15@gmail.com" target ="_blank" class="home__social-icon">
+                                        <a onclick="toggle('wee')"class="home__social-icon">
                                             <i class="uil uil-external-link-alt"></i>
                                         </a>
                                     </div>
@@ -352,6 +351,14 @@
                 </div>
             </section>
 
+            <div id="popup">
+                <h2 id="project_details_title">TESTING HEADER 2</h2>
+                <p>paragraph blah blah test</p>
+                <a onclick="toggle()" class="home__social-icon">
+                    <i class="uil uil-external-link-alt"></i>
+                </a>
+            </div>
+
             <!--==================== CONTACT ME ====================-->
             <section class="contact section" id="contact">
                 <h2 class="section__title">Contact Me</h2>
@@ -463,6 +470,21 @@
         <!-- LOCOMOTIVE SCROLL -->
         <script src="assets/js/locomotive-scroll.min.js"></script>
 
+
+        <!-- PROJECT POPUP BLUR BACKGROUND -->
+        <script type="text/javascript">
+            function toggle(option){
+                var blur = document.getElementById('blur');
+                blur.classList.toggle('active')
+                var popup = document.getElementById('popup');
+                popup.classList.toggle('active');
+                if(option == 'wee'){
+                    document.getElementById("project_details_title").innerHTML = "new text";
+                }
+                var disableLock = document.body;
+                disableLock.classList.toggle('lockscroll')
+            }
+        </script>
 
 
     </body>
